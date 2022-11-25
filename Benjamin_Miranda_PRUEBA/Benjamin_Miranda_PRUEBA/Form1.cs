@@ -149,11 +149,18 @@ namespace Benjamin_Miranda_PRUEBA
         {
             try
             {
-                StreamWriter sw = new StreamWriter("C:\\Users\\benja\\Desktop\\atencionesyclientes_" + DateTime.Today.Year.ToString() + "_" + DateTime.Today.Month.ToString() + "_" + DateTime.Today.Day.ToString() + ".csv");
+                DialogResult dr = this.folderBrowserDialog1.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    string file = folderBrowserDialog1.SelectedPath;
+                    
+                    StreamWriter sw = new StreamWriter(file+"\\atencionesyclientes_" + DateTime.Today.Year.ToString() + "_" + DateTime.Today.Month.ToString() + "_" + DateTime.Today.Day.ToString() + ".csv");
 
-                sw.Write(atencionesyclientes);
-                sw.Close();
-                MessageBox.Show("Archivo Guardado");
+                    sw.Write(atencionesyclientes);
+                    sw.Close();
+                    MessageBox.Show("Archivo Guardado");
+                    
+                }
             }
             catch (Exception ex) { MessageBox.Show("ERROR: " + ex.Message); }
         }
@@ -173,11 +180,18 @@ namespace Benjamin_Miranda_PRUEBA
         {
             try
             {
-                StreamWriter sw = new StreamWriter("C:\\Users\\benja\\Desktop\\atenciones_" + DateTime.Today.Year.ToString() + "_" + DateTime.Today.Month.ToString() + "_" + DateTime.Today.Day.ToString() + ".csv");
+                DialogResult dr = this.folderBrowserDialog1.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    string file = folderBrowserDialog1.SelectedPath;
 
-                sw.Write(atenciones);
-                sw.Close();
-                MessageBox.Show("Archivo Guardado");
+                    StreamWriter sw = new StreamWriter(file+"\\atenciones_" + DateTime.Today.Year.ToString() + "_" + DateTime.Today.Month.ToString() + "_" + DateTime.Today.Day.ToString() + ".csv");
+
+                    sw.Write(atenciones);
+                    sw.Close();
+                    MessageBox.Show("Archivo Guardado");
+
+                }
             }
             catch (Exception ex) { MessageBox.Show("ERROR: " + ex.Message); }
         }
@@ -186,11 +200,18 @@ namespace Benjamin_Miranda_PRUEBA
         {
             try
             {
-                StreamWriter sw = new StreamWriter("C:\\Users\\benja\\Desktop\\clientes_" + DateTime.Today.Year.ToString() + "_" + DateTime.Today.Month.ToString() + "_" + DateTime.Today.Day.ToString() + ".csv");
-                
-                sw.Write(clientes);
-                sw.Close();
-                MessageBox.Show("Archivo Guardado");
+                DialogResult dr = this.folderBrowserDialog1.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    string file = folderBrowserDialog1.SelectedPath;
+
+                    StreamWriter sw = new StreamWriter(file + "\\clientes_" + DateTime.Today.Year.ToString() + "_" + DateTime.Today.Month.ToString() + "_" + DateTime.Today.Day.ToString() + ".csv");
+
+                    sw.Write(clientes);
+                    sw.Close();
+                    MessageBox.Show("Archivo Guardado");
+
+                }
             }
             catch (Exception ex) { MessageBox.Show("ERROR: " + ex.Message); }
         }

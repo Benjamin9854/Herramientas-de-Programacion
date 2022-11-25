@@ -69,6 +69,7 @@
             this.crearAficheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.barberiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -462,7 +463,7 @@
             // crearAficheToolStripMenuItem
             // 
             this.crearAficheToolStripMenuItem.Name = "crearAficheToolStripMenuItem";
-            this.crearAficheToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.crearAficheToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
             this.crearAficheToolStripMenuItem.Text = "Crear Afiche";
             this.crearAficheToolStripMenuItem.Click += new System.EventHandler(this.crearAficheToolStripMenuItem_Click);
             // 
@@ -549,6 +550,7 @@
         private System.Windows.Forms.ToolStripMenuItem barberiaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem crearAficheToolStripMenuItem;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }
 
