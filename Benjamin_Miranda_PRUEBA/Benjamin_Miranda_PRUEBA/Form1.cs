@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,7 @@ namespace Benjamin_Miranda_PRUEBA
     {
         private Cliente[] clientes_registrados = new Cliente[20];
         private int num_client = 0;
+        private string atencionesyclientes, clientes, atenciones;
         public Form1()
         {
             InitializeComponent();
@@ -39,8 +42,10 @@ namespace Benjamin_Miranda_PRUEBA
 
         private void mostrar(Cliente c, Atencion a)
         {
-            string reserva = "Cliente: " + c.Nombre + "     Rut: " + c.Rut + "     Reservacion fecha: " + a.Fecha +" "+ a.Hora;
+            string reserva = "NOMBRE: "+c.Nombre + "     RUT: " + c.Rut + "     FECHA: " + a.Fecha +"     HORA: "+ a.Hora + "     TIPO: " + a.TipoAtencion;
             lst_Mostrar.Items.Add(reserva);
+            atencionesyclientes += c.Nombre + "," + c.Rut + "," + c.Celular + "," + c.Email + "," + a.Fecha + "," + a.Hora + "," +a.TipoAtencion+ "\n";
+            atenciones += a.Fecha + "," + a.Hora + "," + c.Nombre + "\n";
         }
 
         private Cliente buscarCliente(string RUT)
@@ -65,7 +70,7 @@ namespace Benjamin_Miranda_PRUEBA
                 if (chbox_Cabello.Checked == true)
                     a.TipoAtencion = chbox_Cabello.Text;
                 if (chbox_Barba.Checked == true && chbox_Cabello.Checked == true)
-                    a.TipoAtencion = chbox_Barba.Text + chbox_Cabello.Text;
+                    a.TipoAtencion = chbox_Barba.Text +" y "+ chbox_Cabello.Text;
                 a.Fecha = mthCa_Fecha.SelectionStart.Date.ToString();
                 a.Fecha = a.Fecha.Substring(0, 10);
                 a.Hora = cmbox_Hora.Text;
@@ -90,6 +95,7 @@ namespace Benjamin_Miranda_PRUEBA
                     //Agregar RUT del cliente al ComboBox y al registro de clientes
                     cmbox_Rut_E.Items.Add(c.Rut);
                     clientes_registrados[num_client] = c;
+                    clientes += clientes_registrados[num_client].Rut.ToString()+","+ clientes_registrados[num_client].Nombre.ToString() + "," + clientes_registrados[num_client].Celular.ToString() + "," + clientes_registrados[num_client].Email.ToString() + "\n";
                     num_client++;
 
 
@@ -135,6 +141,58 @@ namespace Benjamin_Miranda_PRUEBA
                 MessageBox.Show("Seleccione un Rut o ingrese un nuevo cliente");
             }
             
+        }
+
+      
+
+        private void todosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                StreamWriter sw = new StreamWriter("C:\\Users\\benja\\Desktop\\atencionesyclientes_" + DateTime.Today.Year.ToString() + "_" + DateTime.Today.Month.ToString() + "_" + DateTime.Today.Day.ToString() + ".csv");
+
+                sw.Write(atencionesyclientes);
+                sw.Close();
+                MessageBox.Show("Archivo Guardado");
+            }
+            catch (Exception ex) { MessageBox.Show("ERROR: " + ex.Message); }
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        public void crearAficheToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAfiche afiche = new frmAfiche();
+            afiche.ShowDialog();
+        }
+
+        private void atencionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                StreamWriter sw = new StreamWriter("C:\\Users\\benja\\Desktop\\atenciones_" + DateTime.Today.Year.ToString() + "_" + DateTime.Today.Month.ToString() + "_" + DateTime.Today.Day.ToString() + ".csv");
+
+                sw.Write(atenciones);
+                sw.Close();
+                MessageBox.Show("Archivo Guardado");
+            }
+            catch (Exception ex) { MessageBox.Show("ERROR: " + ex.Message); }
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                StreamWriter sw = new StreamWriter("C:\\Users\\benja\\Desktop\\clientes_" + DateTime.Today.Year.ToString() + "_" + DateTime.Today.Month.ToString() + "_" + DateTime.Today.Day.ToString() + ".csv");
+                
+                sw.Write(clientes);
+                sw.Close();
+                MessageBox.Show("Archivo Guardado");
+            }
+            catch (Exception ex) { MessageBox.Show("ERROR: " + ex.Message); }
         }
     }
 }

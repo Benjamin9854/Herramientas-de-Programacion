@@ -60,18 +60,28 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lst_Mostrar = new System.Windows.Forms.ListView();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.importarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.todosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.atencionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.publicidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearAficheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.barberiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 6);
+            this.tabControl1.Location = new System.Drawing.Point(63, 55);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(891, 631);
@@ -397,12 +407,88 @@
             this.lst_Mostrar.UseCompatibleStateImageBehavior = false;
             this.lst_Mostrar.View = System.Windows.Forms.View.List;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importarToolStripMenuItem,
+            this.publicidadToolStripMenuItem,
+            this.barberiaToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1024, 28);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // importarToolStripMenuItem
+            // 
+            this.importarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.todosToolStripMenuItem,
+            this.clientesToolStripMenuItem,
+            this.atencionesToolStripMenuItem});
+            this.importarToolStripMenuItem.Name = "importarToolStripMenuItem";
+            this.importarToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
+            this.importarToolStripMenuItem.Text = "Importar";
+            // 
+            // todosToolStripMenuItem
+            // 
+            this.todosToolStripMenuItem.Name = "todosToolStripMenuItem";
+            this.todosToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+            this.todosToolStripMenuItem.Text = "Todos";
+            this.todosToolStripMenuItem.Click += new System.EventHandler(this.todosToolStripMenuItem_Click);
+            // 
+            // clientesToolStripMenuItem
+            // 
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
+            // 
+            // atencionesToolStripMenuItem
+            // 
+            this.atencionesToolStripMenuItem.Name = "atencionesToolStripMenuItem";
+            this.atencionesToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+            this.atencionesToolStripMenuItem.Text = "Atenciones";
+            this.atencionesToolStripMenuItem.Click += new System.EventHandler(this.atencionesToolStripMenuItem_Click);
+            // 
+            // publicidadToolStripMenuItem
+            // 
+            this.publicidadToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.crearAficheToolStripMenuItem});
+            this.publicidadToolStripMenuItem.Name = "publicidadToolStripMenuItem";
+            this.publicidadToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
+            this.publicidadToolStripMenuItem.Text = "Publicidad";
+            // 
+            // crearAficheToolStripMenuItem
+            // 
+            this.crearAficheToolStripMenuItem.Name = "crearAficheToolStripMenuItem";
+            this.crearAficheToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.crearAficheToolStripMenuItem.Text = "Crear Afiche";
+            this.crearAficheToolStripMenuItem.Click += new System.EventHandler(this.crearAficheToolStripMenuItem_Click);
+            // 
+            // barberiaToolStripMenuItem
+            // 
+            this.barberiaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.salirToolStripMenuItem});
+            this.barberiaToolStripMenuItem.Name = "barberiaToolStripMenuItem";
+            this.barberiaToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
+            this.barberiaToolStripMenuItem.Text = "Barberia";
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(119, 26);
+            this.salirToolStripMenuItem.Text = "salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 642);
+            this.ClientSize = new System.Drawing.Size(1024, 720);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Barbería";
             this.tabControl1.ResumeLayout(false);
@@ -413,7 +499,10 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -451,6 +540,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ListView lst_Mostrar;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem importarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem todosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem atencionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem publicidadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem barberiaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem crearAficheToolStripMenuItem;
     }
 }
 
